@@ -1,6 +1,6 @@
 # Information
 
-Simple web-based cooking game made in JavaScript. 
+Simple web-based cooking game made using JavaScript, HTML, and CSS.
 
 ## Usage
 
