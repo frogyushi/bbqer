@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="game-canvas">
+        <div class="begin" id="begin">
+            <div>BBQ GAME</div>
+            <button id="start" onclick="start()">START</button>
+            <details>
+                <summary>keybinds</summary>
+                <ul>
+                    <li>DROP ITEM: E</li>
+                    <li>MOVEMENT: WASD</li>
+                    <li>USE: SPACEBAR</li>
+                    <li>CTRL + R: TERUG NAAR MENU</li>
+                </ul>
+            </details>
+            <details>
+                <summary>tutorial</summary>
+                <ul>
+                    <li>STOVE (rood): druk [spacebar] om je vlees te koken, wacht dan 5 seconden om [spacebar] weer te gebruiken om het vlees op te pakken. let op; je inventory moet leeg zijn!</li>
+                    <li>DISPENSER (cyaan): druk [spacebar] om het vlees op te pakken.</li>
+                    <li>COLLECTOR (blauw): druk [spacebar] om het vlees in te leveren.</li>
+                </ul>
+            </details>
+        </div>
+        <div class="end" id="end">
+            <div class="score" id="score1">SCORE: 0</div>
+            <button id="restart" onclick="location.reload()">RESTART</button>
+        </div>
+        <div class="game-map" id="game-map">
+            <div class="ui">
+                <div class="score" id="score">SCORE: 0</div>
+                <div class="timer" id="timer">TIMER: 0</div>
+                <div class="inventory" id="inventory">INVENTORY: NONE</div>
+            </div>
+            <div class="cook-timer" id="cook-timer-1">
+                <p></p>
+            </div>
+            <div class="cook-timer" id="cook-timer-2">
+                <p></p>
+            </div>
+            <div class="character" id="player">
+                <div class="character-spritesheet"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

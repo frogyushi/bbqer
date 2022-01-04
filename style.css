@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --pixel-size: 6px;
+    --grid-cell: var(--pixel-size) * 16;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    image-rendering: crisp-edges;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    background-color: rgb(85, 74, 97);
+}
+
+.cook-timer {
+    font-weight: bold;
+    position: absolute;
+    z-index: 1;
+    width: 100px;
+    color: rgb(170, 72, 72);
+    font-size: 18px;
+}
+
+.center {
+    display: flex;
+}
+
+summary {
+    margin-top: 20px;
+}
+
+summary, li {
+    font-size: 13px
+}
+
+
+
+ul {
+    margin-top: 15px;
+    line-height: 20px;
+    list-style: none;
+    font-weight: 400;
+}
+
+button {
+    color: rgb(49, 34, 49);
+    margin-top: 20px;
+    background-color: rgb(85, 74, 97);
+    border: none;
+}
+
+button:before {
+    content: " ";
+}
+
+button:hover:before {
+    content: "> ";
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.end, .begin {
+    color: rgb(49, 34, 49);
+    font-size: 20px;
+    font-weight: bold;
+    width: 250px;
+}
+
+.end {
+    display: none;
+}
+
+.game-map {
+    display: none;
+}
+
+.cook-timer>* {
+    text-align: center;
+}
+
+#cook-timer-1 {
+    top: calc(var(--grid-cell) * 1 + 28px);
+    left: calc(var(--grid-cell) * 2 - 1px);
+}
+
+#cook-timer-2 {
+    top: calc(var(--grid-cell) * 3 + 28px);
+    left: calc(var(--grid-cell) * 3 - 1px);
+}
+
+li {
+    margin-top: 15px;
+}
+
+.ui {
+    position: absolute;
+    padding: 10px 20px;
+    top: -50px;
+    left: 70px;
+}
+
+.ui>.inventory {
+    width: 1000px;
+}
+
+.ui>* {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 20px;
+    color: rgb(49, 34, 49);
+}
+
+.game-canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.game-map {
+    position: relative;
+    background-image: url("./images/map.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    image-rendering: pixelated;
+    width: calc(var(--grid-cell) *5);
+    height: calc(var(--grid-cell) *5);
+}
+
+.character {
+    z-index: 1000;
+    width: calc(var(--grid-cell)* 2);
+    height: calc(var(--grid-cell)* 2);
+    position: relative;
+    top: calc(var(--pixel-size) * -14);
+    overflow: hidden;
+}
+
+.character-spritesheet {
+    position: absolute;
+    background: url("./images/character.png") no-repeat no-repeat;
+    background-size: 100%;
+    width: calc(var(--grid-cell)* 8);
+    height: calc(var(--grid-cell)* 8);
+}
+
+.character[facing_direction="UP"] .character-spritesheet {
+    background-position-y: calc(var(--pixel-size) * -64);
+}
+
+.character[facing_direction="LEFT"] .character-spritesheet {
+    background-position-y: calc(var(--pixel-size) * -96);
+}
+
+.character[facing_direction="RIGHT"] .character-spritesheet {
+    background-position-y: calc(var(--pixel-size) * -32);
+}
+
+.character[is_moving="true"] .character-spritesheet {
+    animation: move 0.6s steps(4) infinite;
+}
+
+@keyframes move {
+    from {
+        transform: translate3d(0%, 0%, 0);
+    }
+
+    to {
+        transform: translate3d(-100%, 0%, 0);
+    }
+}
